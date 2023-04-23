@@ -5,6 +5,7 @@ import aqt
 import threading
 import time
 import os.path
+import codecs
 #aqt.mw.toolbar.create_link("testcmd","test",lambda:tooltip("test"),"testtip","testcmd")
 toolbarHeight = aqt.mw.toolbar.web.height()
 bottomHeight = aqt.mw.bottomWeb.height()
@@ -13,7 +14,7 @@ windowWidth = 0.25
 windowWidth = windowWidth*aqt.QGuiApplication.primaryScreen().size().width()
 
 jsdata = ""
-with open(os.path.join( os.path.dirname( __file__),'common.js') , 'r') as file:
+with codecs.open(os.path.join( os.path.dirname( __file__),'common.js') , 'r' ,'utf-8') as file:
     jsdata = file.read().replace("</script>","")
 
 def simple_mode_enable(enable=True):
