@@ -1,0 +1,304 @@
+/*=======================初音酱壁纸附加代码========================*/
+.section,.section-night{
+	z-index:1;
+}
+
+.section .graycolor{
+	color:black;
+}
+
+body{
+	overflow-x: hidden;
+}
+
+.nightMode .section .graycolor,
+.night_mode .section .graycolor,
+.nightMode .graycolor,
+.nightMode .fd,
+.nightMode .section,
+.nightMode .card,
+.night_mode .graycolor,
+.night_mode .fd,
+.night_mode .section,
+.night_mode .card{
+	color:white;
+}
+
+.section{
+	background:#FFFFFF50 !important;
+}
+
+.section-night,
+.nightMode .section,
+.night_mode .section{
+	background:#000000A0 !important;
+}
+
+@media screen and (min-width:1100px){ /*电脑最好不要用Filter IE算法太丑了*/
+body:before{
+	background-image:url('bg001.jpg');
+	background-size:cover;
+}
+}
+
+@media screen and (max-width:1100px){ /*手机*/
+body:before{
+	background-image:url('1505839157.jpg');
+     background-size:100% auto;
+	margin-top:0; padding-top:0;
+	filter:brightness(0.7) blur(1px);
+}
+}
+
+body:before{
+	content:' ';
+	position:fixed;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	z-index:-1;
+	background-repeat:repeat-y;
+	background-position:left top;
+}
+
+
+/*=======================初音酱壁纸附加代码========================*/
+
+/*=======================手机电脑调谐附加代码========================*/
+*::-webkit-scrollbar{
+	display:none;
+}
+
+/*20200206调谐附加代码*/
+.section ,.section-night{
+	margin:12px  !important;
+} 
+
+@media screen and (max-width:1100px){ /*手机*/
+html,body{
+	width:100%;
+	height: 100%;
+}
+}
+
+
+html,body{
+margin:0;
+padding:0;
+}
+
+body::-webkit-scrollbar{
+  display:none;
+}
+
+.nightMode .section .hrs,
+.night_mode .section .hrs{
+  border-top: 1px solid #e5e5e5;
+}
+
+.section .hrs{
+  border-top: 1px solid black;
+}
+
+
+body img{
+	max-width: 100%;
+}
+
+.section .items{
+	width: calc(100% - 50px);
+}
+.items .fd{
+	max-width: 100%;
+	padding: 0;
+	margin:0;
+}
+.fd{
+	display: inline-block;
+	word-break: break-all;
+	max-width: calc(100% - 50px);
+}
+/*=========通用修复词==========*/
+html.nightMode .autocolor,
+html.night_mode .autocolor,
+body.nightMode .autocolor,
+body.night_mode .autocolor{
+	color: white;
+}
+body .autocolor{
+	color: black;
+}
+html.nightMode .autoback,
+html.night_mode .autoback,
+body.nightMode .autoback,
+body.night_mode .autoback{
+	background-color: #000000A0;
+}
+body .autoback{
+	background-color: #ffffffA0;
+}
+html.nightMode hr.autohr ,
+html.night_mode hr.autohr ,
+body.nightMode hr.autohr ,
+body.night_mode hr.autohr {
+	border-color: white;
+}
+body hr.autohr {
+	opacity: 0.6;
+	border-color: black;
+}
+html.nightMode .autostrock,
+html.night_mode .autostrock,
+body.nightMode .autostrock,
+body.night_mode .autostrock{
+	-webkit-text-stroke: 1px white;
+}
+body .autostrock{
+	-webkit-text-stroke: 1px black;
+}
+
+.wallpaper body:before{
+	display: block !important;
+}
+
+.nowallpaper body:before{
+	display: none !important;
+}
+
+body .over_scroll,
+.items.ex.leftdiv{
+	overflow: scroll;
+}
+/*=========IOS 修复==========*/
+.mobile body:before{
+	height:2000px;
+}
+/*=========WIN 修复==========*/
+#qa {opacity: 1 !important;}
+/*=========ANDROID 修复==========*/
+html.android{
+	width: auto;
+	height: auto;
+}
+.android body:before{
+	display: none;
+}
+html.common_web_mode{
+	background-color: black !important;
+}
+.common_web_mode.android body:before{
+	display: block;
+}
+
+.common_mobile_mode #ansarea{
+	color: white;
+}
+/*=======================手机电脑调谐附加代码========================*/
+
+/*============================Win端字体调谐==========================*/
+.win .items{
+	font-size:32px;
+	}
+	
+	.win small{
+	font-size:20px;
+	}
+	
+	.win .fd,.win .fd_night{
+	font-size:50px;
+	}
+/*============================Win端字体调谐==========================*/
+
+/*============================Common.JS配合代码==========================*/
+.common_mobile_mode .touchcon,.common_mobile_mode #common_msg,
+.android .touchcon,.ios .touchcon,.android #common_msg,.ios #common_msg,
+.notouch_device .touchcon{
+	pointer-events: none !important;
+	opacity: 0 !important;
+}
+
+.touchcon{
+	position: fixed;
+	display: block;
+	border-radius: 50%;
+	background-color: #00000050;
+	height: 40vh;
+	width: 40vh;
+	top: 50%;
+	z-index: 999;
+	box-shadow: 0 0 5px #FFFFFF50;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	opacity: 1;
+	transition: opacity 0.4s ease;
+	margin:20vh 0;
+	user-select: none;
+}
+
+.common_mobile_mode .touchcon{
+	height: 20vw;
+	width: 20vw;
+}
+
+#left_touch{
+	transform: translate(-50%, -50%);
+	left: 0;
+}
+
+#right_touch{
+	transform: translate(50%, -50%);
+	right: 0;
+}
+
+#common_msg{
+	position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-family: 仿宋;
+    font-size: 30px;
+    text-shadow: 1px 1px 1px black;
+	z-index: 999;
+	display: block;
+	opacity: 1;
+	transition: opacity 0.4s ease;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	background: #00000080;
+    padding: 1em;
+}
+
+#common_msg.show{
+	opacity: 1;
+	cursor: pointer;
+}
+
+#common_msg.hide{	
+	opacity: 0;
+	pointer-events: none;
+}
+
+/*WEB COM*/
+.common_web_mode body,.common_web_mode #qa_box ,.common_web_mode .card,.common_web_mode #ansarea{
+	background: transparent;
+}
+.common_web_mode #leftStudyMenu,.common_web_mode #rightStudyMenu,
+.common_web_mode .navbar
+{
+	display:none;
+}
+.common_web_mode #ease4,.common_web_mode #ease3,.common_web_mode #ease2,.common_web_mode #ease1,
+.common_web_mode #ansbuta
+{
+	opacity: 0.7;
+}
+
+.common_web_mode #activity{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.5);
+}
+/*============================Common.JS配合代码==========================*/
