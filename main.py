@@ -104,7 +104,7 @@ def InjectToolBar(btns):
 # 注入命令
 def InjectCommand(cmds):
     def on_js_msg(a,message: str, context):
-        tooltip(message)
+        #tooltip(message)
         if message in cmds:
             cmds[message]()
         return a
