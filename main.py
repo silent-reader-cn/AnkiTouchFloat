@@ -1,18 +1,12 @@
 import aqt
 from aqt.utils import tooltip
-import locale,codecs,os,anki.cards
+import codecs,os,anki.cards
+from .config import ConfigWindow,config,isChinese
 mainWindow = aqt.mw
 app = aqt.QApplication
 #////////////////////////////////////////////////
 # 自定义命令
-def config(key,value=None):
-    "使用它来获取变量后记得强制转换"
-    addon = aqt.mw.addonManager.getConfig(__name__)
-    if value is None:
-        return addon.get(key)
-    else:
-        addon[key] = value
-        return aqt.mw.addonManager.writeConfig(__name__,addon)
+
 def alwaysOnTop():
     windows = [mainWindow]
     for dclass, instance in aqt.dialogs._dialogs.values():
@@ -77,7 +71,6 @@ def initWindow():
         floatMode(True)
 #///////////////////////////////////////////////
 # 按钮配置
-isChinese = locale.getdefaultlocale()[0] == "zh_CN"
 ExtButtons = {
     "浮窗":"Float"
 }
@@ -130,7 +123,14 @@ def InjectMenu():
             aqt.mw.setWindowOpacity(1.0)
         else:
             aqt.mw.setWindowOpacity(config("opacity"))
+    def configFloat():
+        ConfigWindow()
     def on_menu_show(a,menu:aqt.QMenu):
+        menu.addAction(
+            "浮窗配置" if isChinese else "Float configure"
+            ,configFloat
+        )#.setDisabled(True)
+        menu.addSeparator()
         menu.addAction(
             "开关浮窗模式" if isChinese else "Toggle float mode"
             ,floatMode
@@ -152,6 +152,12 @@ def InjectMenu():
             back,
         )
     aqt.gui_hooks.webview_will_show_context_menu.append(on_menu_show)
+    ## MAIN WINDOW MENU
+    mainMenu = mainWindow.menuBar().addMenu("浮窗(&W)" if isChinese else "Float Window(&W)")
+    on_menu_show(None,mainMenu)
+    
+
+
 #////////////////////////////////////////////////
 
 def init():
@@ -162,6 +168,7 @@ def init():
     with codecs.open(os.path.join( os.path.dirname( __file__),'common.js') , 'r' ,'utf-8') as file:
         jsdata = file.read().replace("</script>","")
         InjectJavascript(jsdata) 
+
 
 
 
