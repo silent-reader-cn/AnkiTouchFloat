@@ -19,9 +19,10 @@ def alwaysOnTop():
         window.show()
 def titlebarHeight():
     return mainWindow.window().windowHandle().frameGeometry().height() - mainWindow.geometry().height()
-def screenSize():
+def screenSize(ignoreTaskbar = None):
+    ignoreTaskbar = config("ignoreTaskbar") if ignoreTaskbar is None else False
     scr = app.primaryScreen()
-    rect = scr.availableGeometry()
+    rect = scr.availableGeometry() if not ignoreTaskbar else scr.geometry()
     return rect
 def windowSize():
     return mainWindow.geometry()
@@ -30,6 +31,8 @@ def normalMode():
     mainWindow.setWindowOpacity(1)
     # 关闭多余控件
     mainWindow.menuBar().show()
+    if config("toolbarless"):
+        mainWindow.toolbar.web.show()
     # 显示在最上方
     mainWindow.setWindowFlags(mainWindow.windowFlags() & ~ (aqt.Qt.WindowType.WindowStaysOnTopHint | (aqt.Qt.WindowType.FramelessWindowHint if config("frameless") else 0)))
     mainWindow.show()

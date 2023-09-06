@@ -48,12 +48,16 @@ class ConfigWindow(QWidget):
         self.toolbarlessCheck = QCheckBox('无工具栏' if isChinese else 'No Toolbar')
         self.toolbarlessCheck.setChecked(config('toolbarless'))
 
+        self.ignoreTaskbar = QCheckBox('忽视任务栏高度' if isChinese else 'Ignore taskbar height')
+        self.ignoreTaskbar.setChecked(config('ignoreTaskbar'))
+
         # 添加组件到表单布局
         formLayout.addRow('宽度' if isChinese else 'Width', self.widthSpin)
         formLayout.addRow('自动' if isChinese else 'Auto', self.autoCheck)  
         formLayout.addRow('边距' if isChinese else 'Margin', self.marginSpin)
         formLayout.addRow('透明度' if isChinese else 'Opacity', self.opacitySpin)
         formLayout.addRow(self.framelessCheck,self.toolbarlessCheck)
+        formLayout.addRow(self.ignoreTaskbar)
         
         # 添加确认和取消按钮
         buttonBox = QDialogButtonBox(Qt.Orientation.Horizontal)
