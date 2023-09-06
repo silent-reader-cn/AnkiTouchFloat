@@ -77,4 +77,5 @@ class ConfigWindow(QWidget):
         config('opacity', self.opacitySpin.value())
         config('frameless', self.framelessCheck.isChecked())
         config('toolbarless', self.toolbarlessCheck.isChecked())
+        config('ignoreTaskbar', self.ignoreTaskbar.isChecked())
         self.close()

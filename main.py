@@ -22,7 +22,7 @@ def titlebarHeight():
 def screenSize(ignoreTaskbar = None):
     ignoreTaskbar = config("ignoreTaskbar") if ignoreTaskbar is None else False
     scr = app.primaryScreen()
-    rect = scr.availableGeometry() if not ignoreTaskbar else scr.geometry()
+    rect = scr.availableGeometry() if not ignoreTaskbar else scr.virtualGeometry()
     return rect
 def windowSize():
     return mainWindow.geometry()
